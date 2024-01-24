@@ -1,0 +1,47 @@
+<h1>Tops#index</h1>
+<p>Find me in app/views/tops/index.html.erb</p>
+
+<div class="FirstView">
+  <h2 class="FirstView-title">
+  Shukuhaku.comで
+  <br>
+  まだ体験したことのない
+  <br>
+  旅をしよう
+  </h2>
+  <div class="FirstViewSearch">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :area, placeholder: "エリア名を入力", class: "SearchArea" %>
+      <%= f.submit :検索, class: "button" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="SecondView">
+  <section class="RecommendAreaSection">
+    <h2 class="RecommendAreaSection_title">おすすめのエリア</h2>
+      <div class="RecommendAreas">
+        <a class="RecommendArea-tokyo" href="">
+          <img class="Tokyo" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg">
+          <span class="RecommendArea_name">東京</span>
+        </a>
+
+        <a class="RecommendArea-osaka" href="">
+          <img class="Osaka" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg">
+          <span class="RecommendArea_name">大阪</span>
+        </a>
+
+        <a class="RecommendArea-kyoto" href="">
+          <img class="Kyoto" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg">
+          <span class="RecommendArea_name">京都</span>
+        </a>
+
+        <a class="RecommendArea-sapporo" href="">
+          <img class="Sapporo" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg">
+          <span class="RecommendArea_name">札幌</span>
+        </a>
+      </div>
+  </section>
+</div>
+
+    

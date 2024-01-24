@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tops/index'
   get 'reservations/new'
   get 'reservations/create'
   get 'reservations/index'
@@ -10,8 +11,11 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/create'
   get 'users/edit'
-  get 'users/update'
+  patch 'users/update'
   get 'users/show'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root 'tops#index'
+  get 'search', to: 'tops#search', as: 'search'
 end
