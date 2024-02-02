@@ -8,6 +8,10 @@ header {
   justify-content: space-between;
 }
 
+table {
+  width: 100%;
+}
+
 .header-logo {
   width: 50%;
   align-items: center;
@@ -23,7 +27,6 @@ header {
 .rightside {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .FirstView {
@@ -36,11 +39,14 @@ header {
   padding: 0 32px;
 }
 
+.room_image img{
+  max-width: 70px;
+  height: auto;
+}
+
 .RecommendAreas {
   width: 80%;
 }
-
-
 
 .Tokyo {
   width: 25%;
@@ -61,3 +67,6 @@ header {
   width: 25%;
   height: 350px;
 }
+
+
+

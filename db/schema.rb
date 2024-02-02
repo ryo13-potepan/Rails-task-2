@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_25_144437) do
+ActiveRecord::Schema.define(version: 2024_01_30_164430) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2024_01_25_144437) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "introduction"
+    t.integer "user_id"
   end
 
 # Could not dump table "users" because of following StandardError
