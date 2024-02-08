@@ -5,5 +5,19 @@
 <p>宿泊日数: <%= @progressday %></p>
 <p>人数: <%= @reservation.num_of_people %></p>
 <p>支払い金額: <%= @total_price %></p>
+<p>上記内容で予約を確定する場合は、下の予約確定ボタンを押してください。</p>
 
-<%= link_to '予約を確定する', reservations_path, method: :post %>
+<div class="submit">
+  <%= form_with model: @reservation, url: {controller: 'reservations', action: 'create' }, local: true do |f| %>
+    <%= f.hidden_field :room_id, value:@room.id %>
+    <%= f.hidden_field :check_in_date, value:@reservation.check_in_date %>
+    <%= f.hidden_field :check_out_date, value:@reservation.check_out_date %>
+    <%= f.hidden_field :num_of_people, value:@reservation.num_of_people %>
+    <%= f.hidden_field :progressday, value:@progressday %>
+    <%= f.hidden_field :total_price, value:@total_price %>
+    <div class="confirm_btn">
+      <%= f.submit "予約を確定する" %>
+      <%= link_to "キャンセルしてルーム一覧に戻る", :rooms, class: "cancel" %>
+    </div>
+  <% end %>
+</div>

@@ -10,11 +10,6 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
 
-  get 'reservations/new'
-  get 'reservations/create'
-  get 'reservations/index'
-  get 'reservations/confirm', to: 'reservations#confirm', as: 'confirm_reservation'
-
   get 'rooms/index'
   get 'rooms/show'
   get 'rooms/new'
