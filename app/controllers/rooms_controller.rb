@@ -1,14 +1,16 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_room, only: [:show]
+
   def index
-    @rooms = Room.all
+    @rooms = current_user.rooms
   end
 
   def show
-  @room = Room.find(params[:id])
   end
 
   def new
-    @room = Room.new
+    @room = current_user.rooms.build
   end
 
   def create
@@ -21,6 +23,16 @@ class RoomsController < ApplicationController
     end
   end
 
+  private
+
+  def set_room
+    @room = Room.find(params[:id])
+  end
+
   def search
+  end
+
+  def room_params
+    params.require(:room).permit(:name, :introduction, :price, :address, :image, :user_id, :room_id)
   end
 end

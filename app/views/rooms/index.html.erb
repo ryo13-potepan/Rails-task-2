@@ -5,6 +5,7 @@
     <tr>
       <th>画像</th>
       <th>施設名</th>
+      <th>ルームID</th>
       <th>紹介文</th>
       <th>料金(/日)</th>
       <th>作成日</th>
@@ -16,9 +17,10 @@
         <tr>
           <td class="room_image"><%= image_tag room.image if room.image.present? %></td>
           <td><%= link_to room.name, room %></td>
+          <td><%= room.id %></td>
           <td><%= room.introduction %></td>
           <td><%= room.price %></td>
-          <td><%= room.created_at.to_s(:datetime_jp) %></td>
+          <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
         </tr>
     <% end %>
   </tbody>
