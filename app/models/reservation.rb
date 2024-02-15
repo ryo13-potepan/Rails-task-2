@@ -2,19 +2,15 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validate :check_in_date_cannot_be_in_the_past
-  validate :check_out_date_after_check_in_date
-  validates :num_of_people, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :num_of_people, numericality: { greater_than_or_equal_to: 1}
 
-  def check_in_date_cannot_be_in_the_past
-    errors.add(:check_in_date, "チェックイン日は本日以降の日付にしてください") if check_in_date.present? && check_in_date < Date.today
-  end
+  validate :date_check
 
-  def check_out_date_after_check_in_date
-    errors.add(:check_out_date, "チェックアウト日はチェックイン日より後の日付けにしてください") if check_out_date.present? && check_out_date <= check_in_date
-  end
+  private
 
-  def formatted_confirmation_date
-    created_at.strftime("%Y/%m/%d %H:%M")
+  def date_check
+    if self.check_out_date < self.check_in_date
+      errors.add :check_out_date, "はチェックイン日以降の日付を選択してください。"
+    end
   end
 end

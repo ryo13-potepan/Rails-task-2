@@ -1,5 +1,5 @@
+<%= render "shared/error", obj: @reservation %>
 <h3>施設詳細</h3>
-
 <table>
   <tr>
     <th>施設イメージ</th>
@@ -34,7 +34,7 @@
 </div>
 
 <div class="reserve_form">
-  <%= form_with model: Reservation.new, url: reservations_confirm_reservations_path(@reservation) do |f| %>
+  <%= form_with model: @reservation, url: reservations_confirm_reservations_path(@reservation) do |f| %>
     <table>
       <tr>
         <th><%= f.label :check_in_date ,"チェックイン" %></th>

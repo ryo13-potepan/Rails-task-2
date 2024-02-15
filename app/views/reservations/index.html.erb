@@ -17,7 +17,13 @@
     <% @reservations.each do |reservation| %>
     <% @room = Room.find(reservation.room_id) %>
       <tr>
-        <td class="room_image"><%= image_tag @room.image %></td>
+        <td class="room_image">
+        <% if @room.image.attached? %>
+          <%= image_tag @room.image %>
+        <% else %>
+          <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+        <% end %>
+        </td>
         <td><%= @room.name %></td>
         <td><%= @room.introduction %></td>
         <td><%= reservation.total_price %></td>

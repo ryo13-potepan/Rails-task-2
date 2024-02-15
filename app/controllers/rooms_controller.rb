@@ -3,14 +3,17 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show]
 
   def index
-    @rooms = current_user.rooms
+    @rooms = Room.all
   end
 
   def show
+    @room = Room.find(params[:id])
+    @user = @room.user
+    @reservation = Reservation.new
   end
 
   def new
-    @room = current_user.rooms.build
+    @room = Room.new
   end
 
   def create
