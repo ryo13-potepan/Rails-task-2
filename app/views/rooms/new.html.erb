@@ -1,3 +1,4 @@
+<%= render "shared/error", obj: @room %>
 <div class="create_room">
   <h2>ルーム新規登録</h2>
   <%= form_with model: @room, url: rooms_path do |f| %>

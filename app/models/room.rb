@@ -3,6 +3,12 @@ class Room < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :price, presence: true
+  validates :address, presence: true
+
+
   after_initialize :set_default_image, if: :new_record?
 
   def set_default_image

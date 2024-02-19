@@ -2,15 +2,22 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :num_of_people, numericality: { greater_than_or_equal_to: 1}
+  validates :check_in_date, presence: true 
+  validates :check_out_date, presence: true
+  validates :num_of_people, presence:true, numericality: { greater_than_or_equal_to: 1}
 
   validate :date_check
 
-  private
-
   def date_check
-    if self.check_out_date < self.check_in_date
-      errors.add :check_out_date, "はチェックイン日以降の日付を選択してください。"
-    end
+    errors.add :check_out_date, "はチェックイン日以降の日付を選択してください。" unless
+    check_in_date == nil || check_out_date == nil || check_in_date < check_out_date
+  end
+
+  def progressday
+    (self.check_out_date - check_in_date).to_i
+  end
+
+  def total_price
+    self.progressday.to_i * self.num_of_people.to_i * self.room.price
   end
 end

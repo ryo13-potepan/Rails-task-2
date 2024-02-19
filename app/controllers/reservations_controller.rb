@@ -14,8 +14,9 @@ class ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(reservation_params)
     @room = Room.find(@reservation.room.id)
-    @progressday = (@reservation.check_out_date - @reservation.check_in_date).to_i
-    @total_price = @room.price * @reservation.num_of_people * @progressday
+    if @reservation.invalid?
+      render 'rooms/show'
+    end
   end
 
   def index
