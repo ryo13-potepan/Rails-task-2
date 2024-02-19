@@ -7,9 +7,9 @@
   旅をしよう
   </h2>
   <div class="FirstViewSearch">
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :area, placeholder: "エリア名を入力", class: "SearchArea" %>
-      <%= f.submit :検索, class: "button" %>
+    <%= form_with url: rooms_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :area, value: @area, placeholder: "エリア名を入力" %>
+      <%= f.submit :検索, :address => nil, class: "button" %>
     <% end %>
   </div>
 </div>

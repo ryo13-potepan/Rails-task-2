@@ -16,6 +16,20 @@
         <a href="http://localhost:3000"><img class="header-logo" src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="ロゴ画像"></a>
       </div>
 
+      <div class="search_area">
+        <%= form_with url:rooms_search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :area, placeholder: "エリア" %>
+        <%= f.submit :エリア検索, class: "btn" %>
+        <% end %>
+      </div>
+
+      <div class="search_key">
+        <%= form_with url:rooms_search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :key, placeholder: "キーワード" %>
+        <%= f.submit :キーワード検索, class: "btn" %>
+        <% end %>
+      </div>
+
       <div class="rightside">
         <div id="header-user-icon">
           <% if user_signed_in? %>

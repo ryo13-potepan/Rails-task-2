@@ -26,13 +26,17 @@ class RoomsController < ApplicationController
     end
   end
 
-  private
-
   def set_room
     @room = Room.find(params[:id])
   end
 
   def search
+    if params[:key].present?
+      @rooms = Room.where(["address like? OR name like? OR introduction like?","%#{params[:key]}%", "%#{params[:key]}%", "%#{params[:key]}%"])
+    elsif params[:area].present?
+      @rooms = Room.where(["address like?","%#{params[:area]}%"])
+    end
+    render "search"
   end
 
   def room_params
