@@ -1,7 +1,6 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <div class="create_acount">
-  <h2 class="create_title">新規登録</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -30,7 +29,6 @@
 
   <div class="actions">
     <%= f.submit "新しいアカウントを作成", class: "form2" %>
-    <a class="form2" href="">すでにアカウントをお持ちの方はログイン</a>
   </div>
 <% end %>
 

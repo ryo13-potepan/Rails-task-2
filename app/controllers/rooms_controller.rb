@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
 
   def search
     if params[:key].present?
-      @rooms = Room.where(["address like? OR name like? OR introduction like?","%#{params[:key]}%", "%#{params[:key]}%", "%#{params[:key]}%"])
+      @rooms = Room.where(["name like? OR introduction like?","%#{params[:key]}%", "%#{params[:key]}%"])
     elsif params[:area].present?
       @rooms = Room.where(["address like?","%#{params[:area]}%"])
     end

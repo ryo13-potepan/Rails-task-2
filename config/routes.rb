@@ -14,17 +14,15 @@ Rails.application.routes.draw do
   get 'rooms/show'
   get 'rooms/new'
   get 'rooms/search'
-
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  patch 'users/update'
-  get 'users/show'
   
-  
-  devise_for :users
+  devise_for :users,
+  controllers: {
+    registrations: 'devise/registrations',
+    sessions: 'devise/sessions'
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+  get 'users/profile'
+  resources :users
  
   get 'search', to: 'tops#search', as: 'search'
   
