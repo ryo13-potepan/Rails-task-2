@@ -19,8 +19,8 @@ table {
 }
 
 .header-user-icon {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
@@ -33,6 +33,16 @@ table {
 .rightside {
   display: flex;
   justify-content: space-between;
+}
+
+.user-info {
+  margin-right: 50px;
+  display: flex;
+  color: white;
+}
+
+.dropdown-menu {
+  display: none;
 }
 
 .FirstView {
