@@ -1,0 +1,88 @@
+header {
+  width: 100%;
+  box-sizing: border-box;
+  height: 70px;
+  padding: 4px 30px;
+  background-color: navy;
+  display: flex;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+}
+
+.header-logo {
+  width: 50%;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.header-user-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.leftside {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rightside {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-info {
+  margin-right: 50px;
+  display: flex;
+  color: white;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.FirstView {
+  max-width: 1440px;
+  padding: 0 32px;
+}
+
+.SecondView {
+  max-width: 1440px;
+  padding: 0 32px;
+}
+
+.room_image img{
+  max-width: 70px;
+  height: auto;
+}
+
+.RecommendAreas {
+  width: 80%;
+}
+
+.Tokyo {
+  width: 25%;
+  height: 350px;
+}
+
+.Osaka {
+  width: 25%;
+  height: 350px;
+}
+
+.Kyoto {
+  width: 25%;
+  height: 350px;
+}
+
+.Sapporo {
+  width: 25%;
+  height: 350px;
+}
+
+
+

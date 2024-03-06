@@ -1,0 +1,33 @@
+<h2>施設一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>施設名</th>
+      <th>紹介文</th>
+      <th>料金(/日)</th>
+      <th>作成日</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+    <% @room = Room.find(room.id) %>
+        <tr>
+          <td class="room_image">
+        <% if @room.image.attached? %>
+          <%= image_tag @room.image %>
+        <% else %>
+          <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+        <% end %>
+          <td><%= link_to room.name, room %></td>
+          <td><%= room.introduction %></td>
+          <td><%= room.price %></td>
+          <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to "新規登録", new_room_path %></p>

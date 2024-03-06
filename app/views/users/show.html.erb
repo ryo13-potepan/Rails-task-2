@@ -1,0 +1,10 @@
+<h2>設定</h2>
+<%= render "shared/user" %>
+
+<h2>アカウント情報</h2>
+<p>メールアドレス</p>
+<p><%= @user.email %></p>
+<p>パスワード</p>
+<p>***********</p>
+<p><%= link_to "編集", edit_user_registration_path(id: current_user.id) %></p>
+

@@ -1,0 +1,44 @@
+<div class="FirstView">
+  <h2 class="FirstView-title">
+  Shukuhaku.comで
+  <br>
+  まだ体験したことのない
+  <br>
+  旅をしよう
+  </h2>
+  <div class="FirstViewSearch">
+    <%= form_with url: rooms_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :area, value: @area, placeholder: "エリア名を入力" %>
+      <%= f.submit :検索, :address => nil, class: "button" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="SecondView">
+  <section class="RecommendAreaSection">
+    <h2 class="RecommendAreaSection_title">おすすめのエリア</h2>
+      <div class="RecommendAreas">
+        <a class="RecommendArea-tokyo" href="http://localhost:3000/rooms/search?area=%E6%9D%B1%E4%BA%AC&commit=%E6%A4%9C%E7%B4%A2">
+          <img class="Tokyo" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg">
+          <span class="RecommendArea_name">東京</span>
+        </a>
+
+        <a class="RecommendArea-osaka" href="http://localhost:3000/rooms/search?area=%E5%A4%A7%E9%98%AA&commit=%E6%A4%9C%E7%B4%A2">
+          <img class="Osaka" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg">
+          <span class="RecommendArea_name">大阪</span>
+        </a>
+
+        <a class="RecommendArea-kyoto" href="http://localhost:3000/rooms/search?area=%E4%BA%AC%E9%83%BD&commit=%E6%A4%9C%E7%B4%A2">
+          <img class="Kyoto" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg">
+          <span class="RecommendArea_name">京都</span>
+        </a>
+
+        <a class="RecommendArea-sapporo" href="http://localhost:3000/rooms/search?area=%E6%9C%AD%E5%B9%8C&commit=%E3%82%A8%E3%83%AA%E3%82%A2%E6%A4%9C%E7%B4%A2">
+          <img class="Sapporo" src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg">
+          <span class="RecommendArea_name">札幌</span>
+        </a>
+      </div>
+  </section>
+</div>
+
+    

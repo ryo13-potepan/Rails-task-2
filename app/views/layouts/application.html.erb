@@ -11,6 +11,53 @@
   </head>
 
   <body>
+    <header>
+      <div class="leftside">
+        <a href="http://localhost:3000"><img class="header-logo" src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="ロゴ画像"></a>
+      </div>
+
+      <div class="search_area">
+        <%= form_with url:rooms_search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :area, placeholder: "エリア" %>
+        <%= f.submit :エリア検索, class: "btn" %>
+        <% end %>
+      </div>
+
+      <div class="search_key">
+        <%= form_with url:rooms_search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :key, placeholder: "キーワード" %>
+        <%= f.submit :キーワード検索, class: "btn" %>
+        <% end %>
+      </div>
+
+      <div class="rightside">
+        <% if user_signed_in? %>
+          <div id="user-menu" class="user-menu">
+            <span id="user-info" class="user-info">
+              <%= current_user.name %>
+              <% if current_user.image.attached? %>
+              <%= image_tag current_user.image, class: "header-user-icon" %>
+              <% else %>
+              <img class="header-user-icon" src="https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" alt="デフォルトアイコン">
+              <% end %>
+            </span>
+
+            <div id="dropdown-menu" class="dropdown-menu">
+              <ul>
+                <li><%= link_to "施設の新規登録", new_room_path %></li>
+                <li><%= link_to "予約済み施設一覧", reservations_path %></li>
+                <li><%= link_to "登録済み施設一覧", rooms_path %></li>
+                <li><%= link_to "アカウント設定", user_path(id: current_user.id) %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div>
+          </div>
+        <% else %>
+          <%= button_to 'ログイン',new_user_session_path %>
+          <%= button_to '登録する',user_registration_path %>
+        <% end %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
